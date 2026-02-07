@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Give a Rose 🌹</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: #f6dede;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Floating petals */
+.petal {
+  position: absolute;
+  font-size: 18px;
+  animation: float 8s linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes float {
+  0% { transform: translateY(-10vh) rotate(0deg); }
+  100% { transform: translateY(110vh) rotate(360deg); }
+}
+
+/* Card */
+.card {
+  background: white;
+  width: 320px;
+  padding: 28px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  animation: pop 0.6s ease;
+}
+
+@keyframes pop {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.rose {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  margin: 10px 0 5px;
+}
+
+p {
+  color: #666;
+  font-size: 14px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 15px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+button {
+  background: #e63946;
+  color: white;
+  border: none;
+  width: 100%;
+  padding: 12px;
+  border-radius: 25px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #c72f3c;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <div class="rose">🌹</div>
+  <h2>Wait!</h2>
+  <p>Who should I give this rose to?</p>
+
+  <input type="text" placeholder="Enter name...">
+  <button onclick="giveRose()">Give Rose</button>
+</div>
+
+<script>
+function giveRose() {
+  alert("🌹 Rose given!");
+}
+
+/* Create petals */
+for (let i = 0; i < 20; i++) {
+  let petal = document.createElement("div");
+  petal.className = "petal";
+  petal.innerHTML = "🌸";
+  petal.style.left = Math.random() * 100 + "vw";
+  petal.style.animationDuration = 5 + Math.random() * 5 + "s";
+  document.body.appendChild(petal);
+}
+</script>
+
+</body>
+</html>
